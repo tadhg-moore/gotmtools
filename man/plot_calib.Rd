@@ -4,10 +4,12 @@
 \alias{plot_calib}
 \title{Plot results from the database}
 \usage{
-plot_calib(dbFile, acpyXML, run = NULL, plot.dim = T, nrow = 2,
-  ncol = 4, zoom = F, z.fct = 2, update = F)
+plot_calib(dbFile, acpyXML, run = NULL, plot.dim = TRUE, nrow = 2,
+  ncol = 4, zoom = FALSE, z.fct = 2, update = F)
 }
 \arguments{
+\item{dbFile}{database file; filepath to the database file where calibration results are stored}
+
 \item{acpyXML}{XML file; filepath to the xml file used for ACPy calibration}
 
 \item{run}{numeric; Run number to extract parameters from. If NULL extracts best parameters from the whole database}
@@ -23,8 +25,6 @@ plot_calib(dbFile, acpyXML, run = NULL, plot.dim = T, nrow = 2,
 \item{z.fct}{numeric; Multiplication factor on zoom to the top of the graph. Defaults to 2. Only used if zoom is set to TRUE.}
 
 \item{update}{logical; Creates a plot that updates every ~30 seconds. It needs to be manually cancelled. Defaults to FALSE..}
-
-\item{db.file}{database file; filepath to the database file where calibration results are stored}
 }
 \value{
 Plot of calibration

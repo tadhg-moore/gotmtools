@@ -26,6 +26,8 @@ plot_inp(file, header = F, sep = "\\t", start = NULL, stop = NULL,
 \item{main}{string; an overall title for the plot}
 
 \item{ylab}{string; a title for the y axis}
+
+\item{pch}{string; Point character to be plotted. Defaults to '.'.}
 }
 \value{
 Dataframe with Date time and values in wide format

@@ -4,6 +4,7 @@
 #' @param df1 dataframe; Data frame with timestep to be matched with.
 #' @param df2 dataframe; Data frame with data to be matched to the timestep of df1
 #' @return Dataframe of observation data subset to the same timestep as modelled data
+#' @import utils
 #' @export
 match_tstep <- function(df1, df2){
   if(df1[1,1] == df1[2,1]){

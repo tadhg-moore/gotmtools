@@ -10,6 +10,7 @@
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
 #' @return Dataframe with Date time and values in wide format
 #' @importFrom reshape2 melt
+#' @importFrom utils read.delim
 #' @export
 plot_meteo <- function(meteo_file,header =F, sep = "\t", start = NULL, stop = NULL,tz ='UTC'){
   met = read.delim(meteo_file, header = header, sep =sep)

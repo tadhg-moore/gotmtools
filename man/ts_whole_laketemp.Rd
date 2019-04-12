@@ -4,10 +4,10 @@
 \alias{ts_whole_laketemp}
 \title{Calculate total lake temperature timeseries}
 \usage{
-ts_whole_laketemp(wtr, bathy, depths, fixed.level = T, tz = "UTC")
+ts_whole_laketemp(wtr, bathy, fixed.level = T, tz = "UTC")
 }
 \arguments{
-\item{wtr}{dataframe; loaded in using load.obs}
+\item{wtr}{dataframe; loaded in using load_obs}
 
 \item{bathy}{datframe; bathymetry loaded in using load.bathy from rLakeAnalyzer}
 

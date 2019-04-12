@@ -10,7 +10,7 @@ plot_month_prof(mod, obs, month = c("Jan", "Apr", "Jul", "Oct"),
 \arguments{
 \item{mod}{dataframe; Modelled values in the long format. i.e. same as observed in ACPy}
 
-\item{obs}{dataframe; Observed values in the long format loaded in using load.obs}
+\item{obs}{dataframe; Observed values in the long format loaded in using load_obs}
 
 \item{month}{vector; with string values for months for profiles in 3-letter format e.g. 'Jan'. Default = c('Jan','Apr', 'Jul','Oct')}
 

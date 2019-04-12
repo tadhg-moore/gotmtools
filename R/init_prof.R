@@ -2,10 +2,11 @@
 #'
 #' Extract and format the initial profile for GOTM from the observation file used in ACPy.
 #'
-#' @param obs.file filepath; Path to observation file
+#' @param obs_file filepath; Path to observation file
 #' @param date character; Date in "YYYY-mm-dd HH:MM:SS" format to extract the initial profile.
 #' @param tprof_file filepath; For the new initial temperature profile file.
 #' @return Message stating if the file has been created
+#' @import utils
 #' @export
 init_prof <- function(obs_file, date, tprof_file){
   obs <- read.delim(obs_file, header = F)

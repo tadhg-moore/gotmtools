@@ -4,8 +4,11 @@
 #'
 #' @param mod vector; Modelled values
 #' @param obs vector; Observed values
+#' @param na.rm logical; Remove NA'values
 #' @return data frame of summary statistics
 #' @importFrom hydroGOF NSE
+#' @importFrom hydroGOF rmse
+#' @import stats
 #' @export
 sum_stat_1var <- function(mod, obs,na.rm =T){
   dif = mod- obs

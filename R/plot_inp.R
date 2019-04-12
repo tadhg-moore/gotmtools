@@ -11,7 +11,9 @@
 #' @param main string; an overall title for the plot
 #' @param ylab string; a title for the y axis
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
+#' @param pch string; Point character to be plotted. Defaults to '.'.
 #' @return Dataframe with Date time and values in wide format
+#' @importFrom utils read.delim
 #' @export
 plot_inp <- function(file, header =F, sep = "\t", start = NULL, stop = NULL, ncol =2,
                      tz ='UTC', main = '', ylab = '', type = 'p', pch = '.'){

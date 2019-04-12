@@ -8,6 +8,8 @@
 #' @param method character determining method for extracting depths at interpolated temperatures. Either linear interpolation or cubic spline. Defaults to linear.
 #' @param print logical; Print a progress bar to the console. Defaults to TRUE
 #' @return data frame in the long format the same as load.obs(). With modelled values at the same depths as observed values.
+#' @import stats
+#' @import utils
 #' @export
 setmodDepths <- function(mod.val, mod.dep, obs, method = 'linear', print = T){
   dep = c()

@@ -5,6 +5,7 @@
 #' @param acpyXML XML file used for ACPy calibration
 #' @return data frame with parameter names and ranges
 #' @import XML
+#' @import stats
 #' @export
 readAcpyParams <- function(acpyXML) {
   xml = xmlParse(acpyXML)

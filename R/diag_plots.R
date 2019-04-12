@@ -7,6 +7,9 @@
 #' @param ggplot logical; plot in ggplot or base plot. Defaults to TRUE
 #' @return grob object which can be assigned and then saved using ggsave() function
 #' @importFrom hydroGOF NSE
+#' @import ggplot2
+#' @import stats
+#' @import graphics
 #' @export
 diag_plots <- function(mod, obs, ggplot = T){
   stats = sum_stat(mod, obs, depth = T)

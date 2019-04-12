@@ -7,11 +7,11 @@
 init_prof(obs_file, date, tprof_file)
 }
 \arguments{
+\item{obs_file}{filepath; Path to observation file}
+
 \item{date}{character; Date in "YYYY-mm-dd HH:MM:SS" format to extract the initial profile.}
 
 \item{tprof_file}{filepath; For the new initial temperature profile file.}
-
-\item{obs.file}{filepath; Path to observation file}
 }
 \value{
 Message stating if the file has been created

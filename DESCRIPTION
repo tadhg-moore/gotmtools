@@ -1,6 +1,6 @@
 Package: gotmtools
 Type: Package
-Title: Tools to work with GOTM input data and also process the output data.
+Title: Tools to work with GOTM input data and also process the output data
 Version: 0.1.0
 Author: Tadhg Moore
 Maintainer: Tadhg Moore <tadhg.moore@dkit.ie>
@@ -20,7 +20,16 @@ Imports:
     ggplot2,
 	hydroGOF,
 	glmtools,
-	reshape2
+	reshape2,
+	RSQLite,
+	XML,
+	MBA,
+	colorRamps,
+	lubridate,
+	tidyr,
+	RColorBrewer,
+	gridExtra,
+	zoo
 Suggests:
     testthat,
     knitr,

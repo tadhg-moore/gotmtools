@@ -10,7 +10,11 @@
 #' @param main string; an overall title for the plot
 #' @param ylab string; a title for the y axis
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
+#' @param type string; what type of plot should be drawn. Uses graphics::plot names. Defaults to 'line'.
+#' @param pch string; Point character to be plotted. Defaults to '.'.
 #' @return Dataframe with Date time and values in wide format
+#' @importFrom utils read.delim
+#' @import graphics
 #' @export
 plot_ext <- function(file, header =F, sep = "\t", start = NULL, stop = NULL,
                      tz ='UTC', main = '', ylab = '', type = 'l', pch = '.'){

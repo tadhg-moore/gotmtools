@@ -6,6 +6,7 @@
 #' @param header logical; file contains the names of the variables as its first line. Defaults to FALSE
 #' @param sep character; the delimiter in the file. Defaults to "\t".
 #' @return vector with start and stop dates as a character
+#' @importFrom utils read.delim
 #' @export
 scan_timeseries <- function(file, header = F, sep = "\t"){
   dat = read.delim(file, header = header, sep = sep)

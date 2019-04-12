@@ -14,23 +14,7 @@ long_heatmap(obs, title = "Heatmap", ylim = NULL, xlim = NULL,
 
 \item{ylim}{vector; Limits for the y-axis. Defaults to range of depths in the data}
 
-\item{var.depths}{logical; If there is varying depths in the data.}
-
-\item{res}{numeric; Resolution of the approximated surface along the x/y axis. Defaults to 100}
-
-\item{contour}{logical; Add contour lines to plot. Defaults to FALSE}
-
-\item{facet}{logical; Apply a facet_wrap and split the plots into different years. Default = FALSE}
-
-\item{ncol}{numeric; number of columns for the facet plot. Default 2}
-
-\item{nrow}{numeric; number of rows for the facet plot. Default 2}
-
-\item{interp}{logical; Interpolate along y and x axis. Only use for daily observed data.}
-
-\item{points}{logical; Plot points of measured temp. Defaults to FALSE}
-
-\item{rev.y.ax}{logical; Reverse y axis. Defaults to FALSE}
+\item{xlim}{vector; Limits for the x-axis. Defaults to range of values in the data}
 }
 \value{
 Plot of interpolated heatmap

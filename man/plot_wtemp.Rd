@@ -8,10 +8,12 @@ plot_wtemp(file, ...)
 }
 \arguments{
 \item{file}{file; File path to netcdf file}
+
+\item{...}{other arguments to be passed to long_heatmap}
 }
 \value{
-filled point plot of water temperature
+ggplot object; filled point plot of water temperature
 }
 \description{
-Extracts modelled water temperature from netcdf file and plots it using long.heatmap function
+Extracts modelled water temperature from netcdf file and plots it using long_heatmap function
 }

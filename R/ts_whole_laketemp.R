@@ -3,14 +3,14 @@
 #' Calculate a time series of total lake temperature for long form data with varying
 #' lake level.
 #'
-#' @param wtr dataframe; loaded in using load.obs
+#' @param wtr dataframe; loaded in using load_obs
 #' @param bathy datframe; bathymetry loaded in using load.bathy from rLakeAnalyzer
 #' @param fixed.level logical; Temperature measurements are at fixed points throughout the timeseries. Defaults to TRUE
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
 #' @return dataframe with time series of whole lake temperature
 #' @importFrom rLakeAnalyzer whole.lake.temperature
 #' @export
-ts_whole_laketemp <- function(wtr, bathy,depths,fixed.level = T, tz = 'UTC'){
+ts_whole_laketemp <- function(wtr, bathy,fixed.level = T, tz = 'UTC'){
   tims = unique(wtr[,1])
   ss.df = data.frame(matrix(NA,ncol = 2, nrow = length(tims)))
   pb = txtProgressBar(min = 0, max = length(tims), style = 3)

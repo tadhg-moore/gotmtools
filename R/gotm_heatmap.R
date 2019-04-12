@@ -16,6 +16,7 @@
 #' @param facet logical; option to plot a facet grid of the year data. Defaults to FALSE
 #' @param surface logical; Plot surface level of the lake. Defaults to TRUE
 #' @param ylim vector; Limits for the y-axis. Defaults to range of depths in the data
+#' @param zlab character; Label for the Z axis
 #' @return Plot of interpolated heatmap
 #' @importFrom colorRamps matlab.like2
 #' @import lubridate
@@ -24,9 +25,9 @@
 #' @import reshape2
 #' @export
 
-gotm_heatmap <- function(data, depths, res = 100, title = 'Heatmap', contour = F,
-                         points = F, rev.y.ax =F,surface =F, fixed.level =T,
-                         facet = F,ncol =2, nrow =2,ylim = NULL,zlab = '', ...){
+gotm_heatmap <- function(data, depths, res = 100, title = 'Heatmap',
+                         #contour = FALSE, ncol =2, nrow =2,
+                         points = FALSE, rev.y.ax = FALSE,surface = FALSE, fixed.level = TRUE, facet = FALSE,ylim = NULL,zlab = '', ...){
   my.cols <- RColorBrewer::brewer.pal(11, 'Spectral') #Colours for temp plot
   nc = ncol(data)
   temp = as.vector(t(data[,2:nc]))
@@ -40,18 +41,18 @@ gotm_heatmap <- function(data, depths, res = 100, title = 'Heatmap', contour = F
   tim = decimal_date(data[,1])
   wat = data.frame(date = tm, dep = deps,temp = temp)
   surf = data.frame(date = tim, surf.d = depths[,2])
-  if(fixed.level == T){
-    if(facet == T){
+  if(fixed.level == TRUE){
+    if(facet == TRUE){
       wat$year = year(tm)
       wat$yday = yday(tm)
       p = ggplot(wat, aes(x = yday, y = dep, z = temp, fill = temp)) +
         geom_tile() +
         ggtitle(title)+
-        {if(rev.y.ax == T)
+        {if(rev.y.ax == TRUE)
           scale_y_reverse()
         }+
-        {if(contour == T)
-          geom_contour(aes(z = temp), inherit.aes = T)
+        {if(contour == TRUE)
+          geom_contour(aes(z = temp), inherit.aes = TRUE)
         }+
         scale_fill_gradientn(colours = rev(my.cols), na.value = 'gray',...) +
         facet_wrap(~year, ncol = ncol, nrow = nrow) +
@@ -65,11 +66,11 @@ gotm_heatmap <- function(data, depths, res = 100, title = 'Heatmap', contour = F
       p = ggplot(wat, aes(x = date, y = dep, z = temp, fill = temp)) +
         geom_tile() +
         ggtitle(title)+
-        {if(rev.y.ax == T)
+        {if(rev.y.ax == TRUE)
           scale_y_reverse()
         }+
-        {if(contour == T)
-          geom_contour(aes(z = temp), inherit.aes = T)
+        {if(contour == TRUE)
+          geom_contour(aes(z = temp), inherit.aes = TRUE)
         }+
         scale_fill_gradientn(colours = rev(my.cols), na.value = 'gray',...) +
         ylab('Depth (m)')+
@@ -93,14 +94,14 @@ gotm_heatmap <- function(data, depths, res = 100, title = 'Heatmap', contour = F
 #   Fig =
 #     ggplot(data=df3, aes(dec, depth))+
 #     ggtitle(title)+
-#     geom_raster(aes(fill = temp), interpolate = T) +
-#     {if(contour == T)
+#     geom_raster(aes(fill = temp), interpolate = TRUE) +
+#     {if(contour == TRUE)
 #       geom_contour(aes(z = temp))
 #     }+
-#     {if(points == T)
+#     {if(points == TRUE)
 #       geom_point(data = wat, aes(yday, dep), colour = 'white', size =0.001)
 #     }+
-#     {if(rev.y.ax == T)
+#     {if(rev.y.ax == TRUE)
 #       scale_y_reverse()
 #     }+
 #     scale_fill_gradientn(colours = matlab.like2(7), ...)+
@@ -116,14 +117,14 @@ gotm_heatmap <- function(data, depths, res = 100, title = 'Heatmap', contour = F
 # Fig =
 #   ggplot(data=df3, aes(date, depth))+
 #   ggtitle(title)+
-#   geom_raster(aes(fill = temp), interpolate = T, hjust = 0.5, vjust = 0.5) +
-#   {if(contour == T)
+#   geom_raster(aes(fill = temp), interpolate = TRUE, hjust = 0.5, vjust = 0.5) +
+#   {if(contour == TRUE)
 #     geom_contour(aes(z = temp))
 #   }+
-#   {if(points == T)
+#   {if(points == TRUE)
 #     geom_point(data = wat, aes(date, dep), colour = 'white', size =0.001)
 #   }+
-#   {if(rev.y.ax == T)
+#   {if(rev.y.ax == TRUE)
 #     scale_y_reverse()
 #   }+
 #   scale_fill_gradientn(colours = matlab.like2(7),...)+

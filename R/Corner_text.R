@@ -5,7 +5,7 @@
 #' @param text text to be added to the plot as a language object
 #' @param location location within the plot for the text to be placed
 #' @return data
-#' @export
+#' @importFrom graphics legend
 Corner_text <- function(text, location="topleft"){
   legend(location,legend=text, bty ="n", pch=NA)
 }

@@ -23,6 +23,10 @@ plot_ext(file, header = F, sep = "\\t", start = NULL, stop = NULL,
 \item{main}{string; an overall title for the plot}
 
 \item{ylab}{string; a title for the y axis}
+
+\item{type}{string; what type of plot should be drawn. Uses graphics::plot names. Defaults to 'line'.}
+
+\item{pch}{string; Point character to be plotted. Defaults to '.'.}
 }
 \value{
 Dataframe with Date time and values in wide format

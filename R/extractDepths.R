@@ -10,6 +10,9 @@
 #' @param method character determining method for extracting depths at interpolated temperatures. Either linear interpolation or cubic spline. Defaults to linear.
 #' @param print logical; Print a progress bar to the console. Defaults to TRUE
 #' @return data frame in the long format the same as load.obs(). With modelled values at the selected depths.
+#' @importFrom glmtools get_var
+#' @import utils
+#' @import stats
 #' @export
 extractDepths <- function(mod.val, mod.dep, ncdf = NULL, var = NULL, depths = NULL, method = 'linear', print = T){
   if(!is.null(ncdf)){

@@ -7,6 +7,7 @@
 #' @param col.deps logical; Assigns depths to column names in the format for rLakeAnalyzer. Defaults to FALSE
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
 #' @return Dataframe with Date time and values in wide format
+#' @import utils
 #' @export
 load_3d <- function(val.file,z.file =NULL, col.deps = F, tz = 'UTC'){
   #Read in modelled water temp

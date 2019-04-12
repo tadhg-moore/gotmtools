@@ -3,10 +3,12 @@
 #' Summarises all information within a database
 #'
 #' @param dbFile database file; filepath to database file with ACPy results
+#' @param acpyXML XML file; filepath to the xml file used for ACPy calibration
 #' @return dataframe containing summary information about the database
 #' @import XML
 #' @import RSQLite
 #' @importFrom tidyr separate
+#' @importFrom stats na.exclude
 #' @export
 dbsummary <- function(dbFile, acpyXML){
   xml = xmlParse(acpyXML)

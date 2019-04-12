@@ -4,9 +4,9 @@
 \alias{gotm_heatmap}
 \title{Create heatmap from GOTM output}
 \usage{
-gotm_heatmap(data, depths, res = 100, title = "Heatmap", contour = F,
-  points = F, rev.y.ax = F, surface = F, fixed.level = T,
-  facet = F, ncol = 2, nrow = 2, ylim = NULL, zlab = "", ...)
+gotm_heatmap(data, depths, res = 100, title = "Heatmap",
+  points = FALSE, rev.y.ax = FALSE, surface = FALSE,
+  fixed.level = TRUE, facet = FALSE, ylim = NULL, zlab = "", ...)
 }
 \arguments{
 \item{data}{dataframe; values loaded with load.3d}
@@ -28,6 +28,8 @@ gotm_heatmap(data, depths, res = 100, title = "Heatmap", contour = F,
 \item{facet}{logical; option to plot a facet grid of the year data. Defaults to FALSE}
 
 \item{ylim}{vector; Limits for the y-axis. Defaults to range of depths in the data}
+
+\item{zlab}{character; Label for the Z axis}
 }
 \value{
 Plot of interpolated heatmap

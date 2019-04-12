@@ -9,7 +9,7 @@
 #' @export
 load_input <- function(input_file, header = F,sep = "\t", tz = 'UTC'){
   if(sep == ' '){
-    inp = read.delim(input.file, header = header, sep = sep)
+    inp = read.delim(input_file, header = header, sep = sep)
     inp$date = paste(inp[,1], inp[,2])
     inp = inp[,c(ncol(inp),3:(ncol(inp) -1))]
     colnames(inp) = c('date', paste0('V',(1:(ncol(inp) -1))))

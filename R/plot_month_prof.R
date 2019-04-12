@@ -3,13 +3,16 @@
 #' Plot monthly temperature averaged profiles for four months
 #'
 #' @param mod dataframe; Modelled values in the long format. i.e. same as observed in ACPy
-#' @param obs dataframe; Observed values in the long format loaded in using load.obs
+#' @param obs dataframe; Observed values in the long format loaded in using load_obs
 #' @param month vector; with string values for months for profiles in 3-letter format e.g. 'Jan'. Default = c('Jan','Apr', 'Jul','Oct')
 #' @param year numeric; specifying year of profiles. Defaults to year of first measurement if not specified.
 #' @param fixed.level logical; Temperature measurements are at fixed points throughout the timeseries. Defaults to TRUE
 #' @param step numeric; Depth to average temperature measurements to. Only used if fixed.level = FALSE.
 #' @return plot of temperature profiles
 #' @importFrom lubridate year
+#' @import utils
+#' @importFrom stats aggregate
+#' @import graphics
 #' @export
 plot_month_prof <- function(mod, obs, month = c('Jan','Apr', 'Jul','Oct'),
                             year = NULL, fixed.level =T, step = 2){

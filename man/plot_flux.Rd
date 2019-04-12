@@ -12,7 +12,7 @@ plot_flux(ncdf, title = "Heat Fluxes")
 \item{title}{character; Title of the graph. Defaults to 'Heat Fluxes'.}
 }
 \value{
-dataframe with the
+2 plots, one with the three fluxes and one with the net flux.
 }
 \description{
 Plots fluxes from the netCDF output file; Sensible heat flux (Qe), latent heat flux (Qh), long-wave back radation (Qb), net surface heat flux (heat).

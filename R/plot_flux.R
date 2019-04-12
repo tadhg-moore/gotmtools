@@ -4,7 +4,7 @@
 #'
 #' @param ncdf filepath; Name of the netCDF file to extract variable
 #' @param title character; Title of the graph. Defaults to 'Heat Fluxes'.
-#' @return dataframe with the
+#' @return 2 plots, one with the three fluxes and one with the net flux.
 #' @importFrom ncdf4 nc_open
 #' @importFrom ncdf4 nc_close
 #' @importFrom ncdf4 ncvar_get
@@ -35,18 +35,27 @@ plot_flux <- function(ncdf, title = 'Heat Fluxes'){
   nc_close(fid)
 
   #Extract time and formate Date
-  df <- data.frame(DateTime = time, Qe = as.vector(qe), Qh = as.vector(qh), Qb = as.vector(qb), heat = as.vector(heat))
-  dfmlt <- reshape2::melt(df, id.vars = 'DateTime')
+  df1 <- data.frame(DateTime = time, Qe = as.vector(qe), Qh = as.vector(qh), Qb = as.vector(qb))
+  df2 <- data.frame(DateTime = time, Net_hflux = heat)
+  dfmlt <- reshape2::melt(df1, id.vars = 'DateTime')
   colnames(dfmlt) <- c('DateTime', 'Flux', 'value')
   #Plot data
   p1 <- ggplot(dfmlt, aes(DateTime, value, colour = Flux))+
-    geom_line(size = 0.8)+
+    geom_line(size = 0.2)+
     ggtitle(title)+
     xlab('')+
     geom_hline(yintercept = 0, colour = 'black')+
     ylab('W/m^2')+
-    theme_bw(base_size = 18)
-  p1
+    theme_bw(base_size = 18)+
+    theme(legend.justification = c(1, 1), legend.position = c(1, 1),legend.text=element_text(size=10), legend.title = element_text(size = 10))
 
-  return(p1)
+  p2 <- ggplot(df2, aes(DateTime, Net_hflux))+
+    geom_line()+
+    ggtitle('Net Heat Flux')+
+    xlab('')+
+    geom_hline(yintercept = 0, colour = 'black')+
+    ylab('W/m^2')+
+    theme_bw(base_size = 18)
+
+  return(gridExtra::grid.arrange(p1,p2, nrow =2))
 }

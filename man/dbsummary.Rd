@@ -8,6 +8,8 @@ dbsummary(dbFile, acpyXML)
 }
 \arguments{
 \item{dbFile}{database file; filepath to database file with ACPy results}
+
+\item{acpyXML}{XML file; filepath to the xml file used for ACPy calibration}
 }
 \value{
 dataframe containing summary information about the database

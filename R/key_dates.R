@@ -10,6 +10,7 @@
 #' @param Tmin numeric; Minimum temperature as a cutoff point for identifying breaks. Defaults to 0.1
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
 #' @return vector with dates of stratification or ice on/off
+#' @import utils
 #' @export
 key_dates <- function(data, type = 'strat', days =7, Tmin = 0.1, tz ='UTC'){
   tim1 = unique(data[,1])

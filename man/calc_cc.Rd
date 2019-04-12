@@ -14,6 +14,8 @@ calc_cc(date, airt, relh = NULL, dewt = NULL, swr, lat, long, elev,
 
 \item{relh}{vector; Relative humidity values which correspond to the vector of dates}
 
+\item{dewt}{vector; Dewpoint temperature values which correspond to the vector of dates. Used instead of relative humidity}
+
 \item{swr}{vector; Short-wave radiation values which correspond to the vector of dates}
 
 \item{lat}{numeric; Latitude position (in decimal)}
@@ -28,5 +30,5 @@ calc_cc(date, airt, relh = NULL, dewt = NULL, swr, lat, long, elev,
 vector of cloud cover values which correspond to the vector of dates supplied
 }
 \description{
-Calculate cloud cover using latitude, air temperature, relative humidity, short wave radiation using the calculations from Martin and McCutcheon (1999).
+Calculate cloud cover using latitude, air temperature, relative humidity (or dewpoint temperature) and short wave radiation using the calculations from Martin and McCutcheon (1999).
 }

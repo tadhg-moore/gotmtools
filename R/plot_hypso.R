@@ -8,6 +8,7 @@
 #' @param title character; Title for the graph. Defaults to "Hypsograph"
 #' @return Plot of hypsograph
 #' @importFrom ggplot2 ggplot
+#' @importFrom utils read.delim
 #' @export
 plot_hypso <- function(hypsograph_file,header =F, sep = "\t", title = 'Hypsograph'){
   hyp <- read.delim(hypsograph_file, header = F,sep = sep, stringsAsFactors = F)

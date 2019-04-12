@@ -7,11 +7,11 @@
 read_bestparam(dbFile, acpyXML, run = NULL)
 }
 \arguments{
+\item{dbFile}{database file; filepath to database file where calibration results are stored}
+
 \item{acpyXML}{XML file; filepath to xml file used for ACPy calibration}
 
 \item{run}{numeric; Run number to extract parameters from. If NULL extracts best parameters from the whole database. Defaults to NULL}
-
-\item{db.file}{database file; filepath to database file where calibration results are stored}
 }
 \value{
 data

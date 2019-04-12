@@ -2,9 +2,10 @@
 #'
 #' For modelled data where there is a varying lake level, this normalises the depths so the surface is the same and assigns depths to the depths lower relative to the top depth. Allows for comparison with observed data from load.obs
 #'
-#' @param mod.val dataframe of modelled values loaded using load.3d
+#' @param mod.dep dataframe of modelled values loaded using load.3d
 #' @param print logical; Print a progress bar to the console. Defaults to TRUE
 #' @return data frame of normalized modelled depths
+#' @import utils
 #' @export
 normDepths <- function(mod.dep, print = T){
   norm.dep = matrix(NA, nrow = nrow(mod.dep), ncol = ncol(mod.dep))

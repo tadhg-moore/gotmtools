@@ -1,9 +1,11 @@
 #' Plot wtemp from netcdf file
 #'
-#' Extracts modelled water temperature from netcdf file and plots it using long.heatmap function
+#' Extracts modelled water temperature from netcdf file and plots it using long_heatmap function
 #'
 #' @param file file; File path to netcdf file
-#' @return filled point plot of water temperature
+#' @param ... other arguments to be passed to long_heatmap
+#' @return ggplot object; filled point plot of water temperature
+#' @importFrom glmtools get_var
 #' @export
 plot_wtemp <- function(file, ...){
   wtemp <- get_var(ncdf = file, var = 'temp')

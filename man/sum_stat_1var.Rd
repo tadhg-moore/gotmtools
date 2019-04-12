@@ -10,6 +10,8 @@ sum_stat_1var(mod, obs, na.rm = T)
 \item{mod}{vector; Modelled values}
 
 \item{obs}{vector; Observed values}
+
+\item{na.rm}{logical; Remove NA'values}
 }
 \value{
 data frame of summary statistics

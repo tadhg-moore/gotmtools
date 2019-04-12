@@ -6,16 +6,8 @@
 #'
 #' @param obs dataframe; observations loaded with load.obs
 #' @param title character; Title of the graph. Defaults to 'Heatmap'
-#' @param var.depths logical; If there is varying depths in the data.
-#' @param res numeric; Resolution of the approximated surface along the x/y axis. Defaults to 100
-#' @param contour logical; Add contour lines to plot. Defaults to FALSE
-#' @param facet logical; Apply a facet_wrap and split the plots into different years. Default = FALSE
-#' @param ncol numeric; number of columns for the facet plot. Default 2
-#' @param nrow numeric; number of rows for the facet plot. Default 2
-#' @param interp logical; Interpolate along y and x axis. Only use for daily observed data.
-#' @param points logical; Plot points of measured temp. Defaults to FALSE
-#' @param rev.y.ax logical; Reverse y axis. Defaults to FALSE
 #' @param ylim vector; Limits for the y-axis. Defaults to range of depths in the data
+#' @param xlim vector; Limits for the x-axis. Defaults to range of values in the data
 #' @return Plot of interpolated heatmap
 #' @importFrom colorRamps matlab.like2
 #' @import lubridate

@@ -10,6 +10,7 @@
 #' @return data frame of summary statistics
 #' @importFrom hydroGOF NSE
 #' @importFrom hydroGOF rmse
+#' @import stats
 #' @export
 sum_stat <- function(mod, obs, depth =F,na.rm =T, depth.range =NULL){
   if(depth == T){

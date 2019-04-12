@@ -2,7 +2,7 @@
 #'
 #' Extract best set of calibrated parameters from database file with xml file
 #'
-#' @param db.file database file; filepath to database file where calibration results are stored
+#' @param dbFile database file; filepath to database file where calibration results are stored
 #' @param acpyXML XML file; filepath to xml file used for ACPy calibration
 #' @param run numeric; Run number to extract parameters from. If NULL extracts best parameters from the whole database. Defaults to NULL
 #' @return data

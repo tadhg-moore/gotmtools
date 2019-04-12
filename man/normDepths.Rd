@@ -7,9 +7,9 @@
 normDepths(mod.dep, print = T)
 }
 \arguments{
-\item{print}{logical; Print a progress bar to the console. Defaults to TRUE}
+\item{mod.dep}{dataframe of modelled values loaded using load.3d}
 
-\item{mod.val}{dataframe of modelled values loaded using load.3d}
+\item{print}{logical; Print a progress bar to the console. Defaults to TRUE}
 }
 \value{
 data frame of normalized modelled depths
