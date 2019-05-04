@@ -6,7 +6,6 @@
 #' @param sep character; the delimiter in the file. Defaults to "\t".
 #' @param tz Assigns timezone to the DateTime column. Defaults to 'UTC'
 #' @return Dataframe of observation data for GOTM
-#' @importfrom utils read.delim
 #' @export
 load_obs <- function(obs.file, header = F,sep = "\t", tz = 'UTC'){
   if(sep == ' '){

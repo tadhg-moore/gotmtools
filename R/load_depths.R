@@ -4,7 +4,6 @@
 #' @param z.file depths file; File path to GOTM output file containing the depths which corresponds to the value file
 #' @param tz Timezone string to be supplied to as.POSIXct. Defaults to 'UTC'. This often can be left to the default unless timezone support is specifically required.
 #' @return Dataframe with depths corresponding to values loaded via load.3d
-#' @importfrom utils read.delim
 #' @export
 load_depths <- function(z.file, tz = 'UTC'){
   layers = read.delim(z.file, skip = 9, header = FALSE)
