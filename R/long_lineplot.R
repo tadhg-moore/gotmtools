@@ -3,6 +3,7 @@
 #' Plots a line plot of the temperatures with the lines coloured for each depth.
 #'
 #' @param data dataframe; observations loaded with load.obs
+#' @param rev.depths logical; Reverse the labelling of the depths. Defaults to FALSE
 #' @param main character; Title of the graph. Defaults to 'Lineplot'
 #' @param ylab character; Label of the y-axis. Defaults to 'Temperature'
 #' @param xlim vector; Limits for the x-axis. Defaults to range of values in the data

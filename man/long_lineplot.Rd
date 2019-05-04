@@ -10,6 +10,8 @@ long_lineplot(data, rev.depths = FALSE, ylab = "Temperature",
 \arguments{
 \item{data}{dataframe; observations loaded with load.obs}
 
+\item{rev.depths}{logical; Reverse the labelling of the depths. Defaults to FALSE}
+
 \item{ylab}{character; Label of the y-axis. Defaults to 'Temperature'}
 
 \item{main}{character; Title of the graph. Defaults to 'Lineplot'}
