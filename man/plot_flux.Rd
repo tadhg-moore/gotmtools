@@ -4,16 +4,18 @@
 \alias{plot_flux}
 \title{Plot fluxes from NetCDF file}
 \usage{
-plot_flux(ncdf, title = "Heat Fluxes")
+plot_flux(ncdf, title = "Heat Fluxes", agg.dly = FALSE)
 }
 \arguments{
 \item{ncdf}{filepath; Name of the netCDF file to extract variable}
 
 \item{title}{character; Title of the graph. Defaults to 'Heat Fluxes'.}
+
+\item{agg.dly}{logical; Aggregate the fluxes to a daily timestep.}
 }
 \value{
-2 plots, one with the three fluxes and one with the net flux.
+2 plots, one with the four fluxes and one with the net flux.
 }
 \description{
-Plots fluxes from the netCDF output file; Sensible heat flux (Qe), latent heat flux (Qh), long-wave back radation (Qb), net surface heat flux (heat).
+Plots fluxes from the netCDF output file; Sensible heat flux (Qe), latent heat flux (Qh), long-wave back radation (Qb), incoming solar radiation (Qsw) and plots the net sum of all these fluxes (Net).
 }

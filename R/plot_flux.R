@@ -1,18 +1,20 @@
 #' Plot fluxes from NetCDF file
 #'
-#' Plots fluxes from the netCDF output file; Sensible heat flux (Qe), latent heat flux (Qh), long-wave back radation (Qb), net surface heat flux (heat).
+#' Plots fluxes from the netCDF output file; Sensible heat flux (Qe), latent heat flux (Qh), long-wave back radation (Qb), incoming solar radiation (Qsw) and plots the net sum of all these fluxes (Net).
 #'
 #' @param ncdf filepath; Name of the netCDF file to extract variable
 #' @param title character; Title of the graph. Defaults to 'Heat Fluxes'.
-#' @return 2 plots, one with the three fluxes and one with the net flux.
+#' @param agg.dly logical; Aggregate the fluxes to a daily timestep.
+#' @return 2 plots, one with the four fluxes and one with the net flux.
 #' @importFrom ncdf4 nc_open
 #' @importFrom ncdf4 nc_close
 #' @importFrom ncdf4 ncvar_get
 #' @importFrom ncdf4 ncatt_get
 #' @importFrom reshape2 melt
+#' @importFrom gridExtra grid.arrange
 #' @import ggplot2
 #' @export
-plot_flux <- function(ncdf, title = 'Heat Fluxes'){
+plot_flux <- function(ncdf, title = 'Heat Fluxes', agg.dly = FALSE){
   fid = nc_open(ncdf)
   tim = ncvar_get(fid, 'time')
   tunits = ncatt_get(fid,'time')
@@ -27,35 +29,39 @@ plot_flux <- function(ncdf, title = 'Heat Fluxes'){
   origin = as.POSIXct(paste0(tyear,'-',tmonth,'-',tday), format = '%Y-%m-%d', tz = 'UTC')
   time = as.POSIXct(tim, origin = origin, tz = 'UTC')
 
-  #I0 = ncvar_get(fid, 'I_0') # Short wave radiation
-  qe = ncvar_get(fid, 'qe')
-  qh = ncvar_get(fid, 'qh')
+  qe = ncvar_get(fid, 'qh')
+  qh = ncvar_get(fid, 'qe')
   qb = ncvar_get(fid, 'qb')
-  heat = ncvar_get(fid, 'heat')
+  qsw = ncvar_get(fid, 'I_0') #Albedo and swr_factor is included in this calculation
+  net = qe + qh + qb + qsw
   nc_close(fid)
 
   #Extract time and formate Date
-  df1 <- data.frame(DateTime = time, Qe = as.vector(qe), Qh = as.vector(qh), Qb = as.vector(qb))
-  df2 <- data.frame(DateTime = time, Net_hflux = heat)
-  dfmlt <- reshape2::melt(df1, id.vars = 'DateTime')
+  df <- data.frame(DateTime = time, Qe = qe, Qh = qh, Qb = qb, Qsw = qsw, Net = net)
+  if(agg.dly == T){
+    df = aggregate(list(Qe = df$Qe, Qh = df$Qh, Qb = df$Qb, Qsw = df$Qsw, Net = df$Net), by = list(DateTime = cut(df$DateTime, '1 day')), mean)
+    df$DateTime <- as.POSIXct(df$DateTime, tz = 'UTC')
+  }
+  dfmlt <- reshape2::melt(df, id.vars = 'DateTime')
   colnames(dfmlt) <- c('DateTime', 'Flux', 'value')
   #Plot data
-  p1 <- ggplot(dfmlt, aes(DateTime, value, colour = Flux))+
+  p1 <- ggplot(dfmlt[(dfmlt$Flux != 'Net'),], aes(DateTime, value, colour = Flux))+
+    geom_hline(yintercept = 0, colour = 'black', linetype = 'dashed')+
     geom_line(size = 0.2)+
     ggtitle(title)+
     xlab('')+
-    geom_hline(yintercept = 0, colour = 'black')+
     ylab('W/m^2')+
-    theme_bw(base_size = 18)+
-    theme(legend.justification = c(1, 1), legend.position = c(1, 1),legend.text=element_text(size=10), legend.title = element_text(size = 10))
+    theme_bw(base_size = 18)#+
+  #theme(legend.justification = c(1, 1), legend.position = c(1, 1),legend.text=element_text(size=10), legend.title = element_text(size = 10), legend.c)
 
-  p2 <- ggplot(df2, aes(DateTime, Net_hflux))+
+  p2 <- ggplot(dfmlt[(dfmlt$Flux == 'Net'),], aes(DateTime, value, colour = Flux))+
+    geom_hline(yintercept = 0, colour = 'black', linetype = 'dashed')+
     geom_line()+
     ggtitle('Net Heat Flux')+
     xlab('')+
-    geom_hline(yintercept = 0, colour = 'black')+
     ylab('W/m^2')+
+    scale_colour_manual(values = 'black')+
     theme_bw(base_size = 18)
 
-  return(gridExtra::grid.arrange(p1,p2, nrow =2))
+  return(grid.arrange(p1,p2, nrow =2))
 }
