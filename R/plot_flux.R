@@ -47,11 +47,12 @@ plot_flux <- function(ncdf, title = 'Heat Fluxes', agg.dly = FALSE){
   #Plot data
   p1 <- ggplot(dfmlt[(dfmlt$Flux != 'Net'),], aes(DateTime, value, colour = Flux))+
     geom_hline(yintercept = 0, colour = 'black', linetype = 'dashed')+
-    geom_line(size = 0.2)+
+    geom_line(size = 0.5)+
     ggtitle(title)+
     xlab('')+
     ylab('W/m^2')+
-    theme_bw(base_size = 18)#+
+    theme_bw(base_size = 18)+
+    guides(colour = guide_legend(override.aes = list(size=4, alpha = 1, shape = 0)))#+
   #theme(legend.justification = c(1, 1), legend.position = c(1, 1),legend.text=element_text(size=10), legend.title = element_text(size = 10), legend.c)
 
   p2 <- ggplot(dfmlt[(dfmlt$Flux == 'Net'),], aes(DateTime, value, colour = Flux))+
@@ -61,6 +62,7 @@ plot_flux <- function(ncdf, title = 'Heat Fluxes', agg.dly = FALSE){
     xlab('')+
     ylab('W/m^2')+
     scale_colour_manual(values = 'black')+
+
     theme_bw(base_size = 18)
 
   return(grid.arrange(p1,p2, nrow =2))
