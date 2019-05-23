@@ -13,8 +13,8 @@
 sum_stat_1var <- function(mod, obs,na.rm =T){
   dif = mod- obs
   pear_r = cor.test(obs, mod, method = 'pearson')
-  var_obs = mean(((obs-mean(obs, na.rm = na.r))^2), na.rm = na.rm)
-  var_mod = mean(((mod-mean(mod, na.rm = na.r))^2), na.rm = na.rm)
+  var_obs = mean(((obs-mean(obs, na.rm = na.rm))^2), na.rm = na.rm)
+  var_mod = mean(((mod-mean(mod, na.rm = na.rm))^2), na.rm = na.rm)
   SD_obs = sd(obs, na.rm = na.rm)
   SD_mod = sd(mod, na.rm = na.rm)
   cov = mean((obs-mean(obs, na.rm = na.rm))*(mod-mean(mod, na.rm = na.rm)), na.rm = na.rm)
