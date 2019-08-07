@@ -14,7 +14,7 @@ load_input <- function(input_file, header = F,sep = "\t", tz = 'UTC'){
     inp = inp[,c(ncol(inp),3:(ncol(inp) -1))]
     colnames(inp) = c('date', paste0('V',(1:(ncol(inp) -1))))
   }else{
-    inp = read.delim(input.file, header = header, sep = sep)
+    inp = read.delim(input_file, header = header, sep = sep)
   }
   inp[,1] = as.POSIXct(as.character(inp[,1]),format = '%Y-%m-%d %H:%M:%S', tz = tz)
   return(inp)
