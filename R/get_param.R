@@ -38,7 +38,7 @@ get_param <- function(dbFile, acpyXML, run = NULL){
   pars <- separate(table, parameters, var.nam, sep = ';')
   pars[,c(var.nam)] <- sapply(pars[,c(var.nam)], as.numeric)
   # pars <- mutate(pars, function(x) as.numeric(as.character(x)))
-  colnames(pars) <- var.nam
+  # colnames(pars) <- var.nam
   pars$run <- table$run
   pars$id <- table$id
   pars$lnlikelihood <- table$lnlikelihood
@@ -49,3 +49,4 @@ get_param <- function(dbFile, acpyXML, run = NULL){
   }
   return(pars)
 }
+
