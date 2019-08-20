@@ -4,7 +4,7 @@
 \alias{init_prof}
 \title{Create initial profile for GOTM}
 \usage{
-init_prof(obs_file, date, tprof_file)
+init_prof(obs_file, date, tprof_file, print = TRUE, ...)
 }
 \arguments{
 \item{obs_file}{filepath; Path to observation file}
@@ -12,6 +12,10 @@ init_prof(obs_file, date, tprof_file)
 \item{date}{character; Date in "YYYY-mm-dd HH:MM:SS" format to extract the initial profile.}
 
 \item{tprof_file}{filepath; For the new initial temperature profile file.}
+
+\item{print}{logical; Prints the temperature profile to the con}
+
+\item{...}{arguments to be passed to read.delim() for reading in observed file e.g "header = TRUE, sep = ','"}
 }
 \value{
 Message stating if the file has been created
