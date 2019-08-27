@@ -16,8 +16,8 @@
 #' @export
 extractDepths <- function(mod.val, mod.dep, ncdf = NULL, var = NULL, depths = NULL, method = 'linear', print = T){
   if(!is.null(ncdf)){
-    mod.val = get_var(ncdf, var, print = F)
-    mod.dep = get_var(ncdf, 'z', print = F)
+    mod.val = get_vari(ncdf, var, print = F)
+    mod.dep = get_vari(ncdf, 'z', print = F)
   }
   dep = c()
   tmp = c()
