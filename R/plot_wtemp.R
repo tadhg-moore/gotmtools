@@ -8,8 +8,8 @@
 #' @importFrom glmtools get_var
 #' @export
 plot_wtemp <- function(file, ...){
-  wtemp <- get_var(ncdf = file, var = 'temp')
-  z = get_var(ncdf = file, var = 'z')
+  wtemp <- get_vari(ncdf = file, var = 'temp')
+  z = get_vari(ncdf = file, var = 'z')
   tmp = wide2long(wtemp,z)
   p1 = long_heatmap(tmp, ...)
   return(p1)
