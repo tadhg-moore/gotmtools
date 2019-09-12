@@ -12,16 +12,7 @@ match_tstep <- function(df1, df2){
     df = merge(df, df2, by = 1)
     return(df)
   }else{
-    tim1 = df1[,1]
-    tim2 = df2[,1]
-    ind = c()
-    pb = txtProgressBar(min = 0, max = length(tim1), style = 3)
-    for(i in 1:length(tim1)){
-      ind = append(ind, which(tim2 == tim1[i]))
-      setTxtProgressBar(pb, i)
-    }
-    close(pb)
-    df2.mat = df2[ind,]
-    return(df2.mat)
+	df = df2[(df2[,1] %in% df1[,1]),]
+    return(df)
   }
 }
