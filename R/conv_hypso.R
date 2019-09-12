@@ -5,7 +5,7 @@
 #' @param in_file value file; File path to GOTM hypsograph file
 #' @param out_file value file; File path to write the new ".bth' file to
 #' @param header logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.
-#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"
+#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab
 #' @return File with hypsograph formatted for rLakeAnalyzer
 #' @importFrom utils read.delim
 #' @importFrom utils write.csv

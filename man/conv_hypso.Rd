@@ -13,7 +13,7 @@ conv_hypso(in_file, out_file, header = F, sep = "\\t")
 
 \item{header}{logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.}
 
-\item{sep}{character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"}
+\item{sep}{character; field separator character. Values on each line of the file are separated by this character. Defaults to tab}
 }
 \value{
 File with hypsograph formatted for rLakeAnalyzer
