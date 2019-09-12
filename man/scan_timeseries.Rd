@@ -11,7 +11,7 @@ scan_timeseries(file, header = F, sep = "\\t")
 
 \item{header}{logical; file contains the names of the variables as its first line. Defaults to FALSE}
 
-\item{sep}{character; the delimiter in the file. Defaults to "\t".}
+\item{sep}{character; the delimiter in the file. Defaults to tab}
 }
 \value{
 vector with start and stop dates as a character

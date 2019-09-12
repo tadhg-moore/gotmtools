@@ -12,7 +12,7 @@ plot_meteo(meteo_file, header = F, sep = "\\t", start = NULL,
 
 \item{header}{logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.}
 
-\item{sep}{character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"}
+\item{sep}{character; field separator character. Values on each line of the file are separated by this character. Defaults to tab}
 
 \item{start}{string; Start date of range of data to be plotted.}
 

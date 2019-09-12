@@ -5,7 +5,7 @@
 #' @param file value file; File path to GOTM initial temperature file.
 #' @param start string; Start date of model initialization.
 #' @param header logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.
-#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"
+#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab
 view_init <- function(file, start, header = FALSE, sep = "\t"){
   sta = as.POSIXct(start, tz ='UTC')
   tp = read.delim(file, header = header, col.names = c('Depth', 'Temp'), sep =sep)

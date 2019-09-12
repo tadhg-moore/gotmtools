@@ -11,7 +11,7 @@ load_input(input_file, header = F, sep = "\\t", tz = "UTC")
 
 \item{header}{logical; file contains the names of the variables as its first line. Defaults to FALSE}
 
-\item{sep}{character; the delimiter in the file. Defaults to "\t".}
+\item{sep}{character; the delimiter in the file. Defaults to tab.}
 
 \item{tz}{Assigns timezone to the DateTime column. Defaults to 'UTC'}
 }

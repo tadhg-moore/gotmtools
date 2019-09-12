@@ -4,7 +4,7 @@
 #'
 #' @param file file; File path to ACPy observation file containing the time, depths and values of observations
 #' @param header logical; file contains the names of the variables as its first line. Defaults to FALSE
-#' @param sep character; the delimiter in the file. Defaults to "\t".
+#' @param sep character; the delimiter in the file. Defaults to tab
 #' @return vector with start and stop dates as a character
 #' @importFrom utils read.delim
 #' @export

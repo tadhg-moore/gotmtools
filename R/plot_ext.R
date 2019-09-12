@@ -4,7 +4,7 @@
 #'
 #' @param file value file; File path to GOTM meteorlogical input file.
 #' @param header logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.
-#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"
+#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab
 #' @param start string; Start date of range of data to be plotted.
 #' @param stop string; Stop date of range of data to be plotted.
 #' @param main string; an overall title for the plot

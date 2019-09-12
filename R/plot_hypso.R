@@ -4,7 +4,7 @@
 #'
 #' @param hypsograph_file value file; File path to GOTM hypsograph input file.
 #' @param header logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.
-#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"
+#' @param sep character; field separator character. Values on each line of the file are separated by this character. Defaults to tab
 #' @param title character; Title for the graph. Defaults to "Hypsograph"
 #' @return Plot of hypsograph
 #' @importFrom ggplot2 ggplot

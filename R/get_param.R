@@ -6,12 +6,8 @@
 #' @param acpyXML XML file; filepath to xml file used for ACPy calibration
 #' @param run numeric; Run number to extract parameters from. If NULL extracts runs from the whole database. Defaults to NULL
 #' @return data
-#' @importfrom RSQLite dbConnect
-#' @importfrom RSQLite dbGetQuery
-#' @importfrom RSQLite dbDisconnect
-#' @importfrom XML xmlParse
-#' @importfrom XML xmlRoot
-#' @importfrom XML xmlSApply
+#' @importfrom RSQLite dbConnect dbGetQuery dbDisconnect
+#' @importfrom XML xmlParse xmlRoot xmlSApply
 #' @importFrom tidyr separate
 #' @export
 get_param <- function(dbFile, acpyXML, run = NULL){

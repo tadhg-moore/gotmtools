@@ -13,7 +13,7 @@ view_init(file, start, header = FALSE, sep = "\\t")
 
 \item{header}{logical; indicating whether the file contains the names of the variables as its first line. Defaults to FALSE.}
 
-\item{sep}{character; field separator character. Values on each line of the file are separated by this character. Defaults to tab "\t"}
+\item{sep}{character; field separator character. Values on each line of the file are separated by this character. Defaults to tab}
 }
 \description{
 Prints initial temperature profile for the model

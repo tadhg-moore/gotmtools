@@ -3,7 +3,7 @@
 #' Load observations which are used for calibration, for plotting in a heatmap
 #' @param obs.file observation file; File path to GOTM observation file containing the time, depths and values of observations
 #' @param header logical; file contains the names of the variables as its first line. Defaults to FALSE
-#' @param sep character; the delimiter in the file. Defaults to "\t".
+#' @param sep character; the delimiter in the file. Defaults to tab.
 #' @param tz Assigns timezone to the DateTime column. Defaults to 'UTC'
 #' @return Dataframe of observation data for GOTM
 #' @export

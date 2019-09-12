@@ -12,7 +12,9 @@ Function desription and example files soon to follow...
 You can install gotmtools from Github with:
 
 ```{r gh-installation, eval = FALSE}
+install.packages('glmtools', repos = "https://owi.usgs.gov/R")
 # install.packages("devtools")
+devtools::install_github("tadhg-moore/GOTMr")
 devtools::install_github("tadhg-moore/gotmtools")
 ```
       
