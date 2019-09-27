@@ -2,7 +2,6 @@
 
 export(calc_cc)
 export(calc_dens)
-export(calc_in_lwr)
 export(calc_swr)
 export(conv_hypso)
 export(dbsummary)
