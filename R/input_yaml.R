@@ -48,12 +48,13 @@ input_yaml <- function(file = 'gotm.yaml', label, key, value, out_file = NULL){
     }
 
   #Split to extract current value and identify pattern to sub in for
-  spl2 <- strsplit(spl1[1], ':')[[1]][2]
-  if(!is.na(comment)){
-    sub = paste0(' ', value,' #', comment)
-  }else{
-    sub = paste0(' ', value)
-  }
+  spl2 <- strsplit(spl1[1], ': ')[[1]][2]
+
+  # if(!is.na(comment)){
+    # sub = paste0(' ', value,' #', comment)
+  # }else{
+    sub = paste0(value,' ')
+  # }
 
   #Sub in new value
   yml[ind_map] <- gsub(pattern = spl2, replacement = sub,x = yml[ind_map])
