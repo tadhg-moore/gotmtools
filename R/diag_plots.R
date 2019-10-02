@@ -118,7 +118,7 @@ diag_plots <- function(mod, obs, size = 0.1, ggplot = TRUE, colourblind = TRUE){
       ylab('Residuals')+
       ggtitle('Residuals vs. Modelled')+
       {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
-      #guides(colour = guide_legend(override.aes = list(size=5)))+
+      guides(colour = F)+
       geom_hline(yintercept = 0, size = 1, linetype = 'dashed')+
       theme_bw()
 
@@ -129,7 +129,7 @@ diag_plots <- function(mod, obs, size = 0.1, ggplot = TRUE, colourblind = TRUE){
       ggtitle('Residuals vs. Time')+
       #scale_color_gradientn(colors = rev(my.cols), name = 'Depths')+
       {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
-      #guides(colour = guide_legend(override.aes = list(size=lgd.sz)))+
+      guides(colour = F)+
       geom_hline(yintercept = 0, size = 1, linetype = 'dashed')+
       theme_bw()#+
     #theme(legend.text=element_text(size= (lgd.sz*2.5)))
@@ -141,7 +141,7 @@ diag_plots <- function(mod, obs, size = 0.1, ggplot = TRUE, colourblind = TRUE){
       ggtitle('Residuals vs. Depth')+
       geom_vline(xintercept = 0, linetype = 'dashed', size = 1)+
       {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
-      #guides(colour = guide_legend(override.aes = list(size=5)))+
+      guides(colour = F)+
       theme_bw()
 
 
@@ -153,7 +153,7 @@ diag_plots <- function(mod, obs, size = 0.1, ggplot = TRUE, colourblind = TRUE){
       coord_cartesian(xlim = range(mod[,3], obs[,3], na.rm =T), ylim = range(mod[,3], obs[,3], na.rm =T))+
       geom_abline(slope = 1, intercept = 0, colour = 'black', linetype = 'dashed', size =1)+
       {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
-      #guides(colour = guide_legend(override.aes = list(size=5)))+
+      guides(colour = F)+
       theme_bw()
     p5 <- p5 + annotation_custom(grob2) + annotation_custom(grob3)
 
