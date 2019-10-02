@@ -9,6 +9,7 @@
 #' @importFrom  RSQLite dbConnect dbGetQuery dbDisconnect
 #' @importFrom  XML xmlParse xmlRoot xmlSApply
 #' @importFrom tidyr separate
+#' @importFrom readr parse_number
 #' @export
 get_param <- function(dbFile, acpyXML, run = NULL){
   xml = xmlParse(acpyXML)
