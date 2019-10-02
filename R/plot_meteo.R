@@ -16,7 +16,7 @@ plot_meteo <- function(meteo_file,header =F, sep = "\t", start = NULL, stop = NU
   met = read.delim(meteo_file, header = header, sep =sep)
   if(!is.numeric(met[1,2])){
     met$DateTime = paste(met[,1], met[,2])
-    met = met[,c(9,3:8)]
+    met = met[,c(ncol(met),3:8)]
   }else{
     colnames(met)[1] <- 'DateTime'
   }
@@ -29,7 +29,7 @@ plot_meteo <- function(meteo_file,header =F, sep = "\t", start = NULL, stop = NU
     #ylab = 'C'
   }
 
-  colnames(met) <- c('Date','u10','v10','MSLP','AirT',c6,'CC')
+  colnames(met)[1] <- c('Date')#,'u10','v10','MSLP','AirT',c6,'CC')
   if(!is.null(start) & !is.null(stop)){
     met = met[(met$Date >= start & met$Date < stop),]
   }
@@ -38,7 +38,7 @@ plot_meteo <- function(meteo_file,header =F, sep = "\t", start = NULL, stop = NU
   p1 <- ggplot(met1, aes(Date,value, color = variable))+
     geom_line(size =0.1)+
     geom_point(size =0.5)+
-    facet_wrap(~variable, ncol=3, nrow = 2, scales = 'free')+
+    facet_wrap(~variable, ncol=1, scales = 'free')+
     theme_bw()
   return(p1)
 }

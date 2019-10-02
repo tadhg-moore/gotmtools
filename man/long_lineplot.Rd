@@ -5,7 +5,7 @@
 \title{Create line plot from observed temperature in long format}
 \usage{
 long_lineplot(data, rev.depths = FALSE, ylab = "Temperature",
-  main = "Lineplot")
+  main = "Lineplot", colourblind = TRUE)
 }
 \arguments{
 \item{data}{dataframe; observations loaded with load.obs}
@@ -15,6 +15,8 @@ long_lineplot(data, rev.depths = FALSE, ylab = "Temperature",
 \item{ylab}{character; Label of the y-axis. Defaults to 'Temperature'}
 
 \item{main}{character; Title of the graph. Defaults to 'Lineplot'}
+
+\item{colourblind}{logical; Use colourblind friendly colours. Defaults to TRUE}
 
 \item{xlim}{vector; Limits for the x-axis. Defaults to range of values in the data}
 }

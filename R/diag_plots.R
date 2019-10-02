@@ -4,19 +4,27 @@
 #'
 #' @param mod dataframe; modelled values in long format.
 #' @param obs dataframe; observed values in long format.
+#' @param size numeric; size of points in plot. Defaults to 0.1
 #' @param ggplot logical; plot in ggplot or base plot. Defaults to TRUE
+#' @param colourblind logical; Use colourblind friendly colours. Defaults to TRUE
 #' @return grob object which can be assigned and then saved using ggsave() function
 #' @importFrom hydroGOF NSE
+#' @importFrom RColorBrewer brewer.pal
+#' @importFrom grDevices colorRamp
 #' @import ggplot2
 #' @import stats
 #' @import graphics
 #' @export
-diag_plots <- function(mod, obs, ggplot = T){
+diag_plots <- function(mod, obs, size = 0.1, ggplot = TRUE, colourblind = TRUE){
   stats = sum_stat(mod, obs, depth = T)
   if(max(mod[,2]) > 0){ #Makes depths negative
     mod[,2] <- -mod[,2]
   }
-  if(ggplot == F){
+  ndep = length(unique(obs[,2]))
+  if(colourblind){
+    dramp <- colorRampPalette(RColorBrewer::brewer.pal(8, 'Dark2'))
+  }
+  if(ggplot == FALSE){
     dif = mod[,3] - obs[,3]
     par(mfrow=c(2,3))
 
@@ -105,46 +113,46 @@ diag_plots <- function(mod, obs, ggplot = T){
     p1 <- p1 + annotation_custom(grob1)
 
     p2 <- ggplot(mod, aes_string(names(mod)[3], 'res', colour = 'fdepth'))+
-      geom_point(size = 0.1)+
+      geom_point(size = size)+
       xlab('Modelled values')+
       ylab('Residuals')+
       ggtitle('Residuals vs. Modelled')+
-      scale_color_discrete(name = 'Depths', guide = F)+
+      {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
       #guides(colour = guide_legend(override.aes = list(size=5)))+
       geom_hline(yintercept = 0, size = 1, linetype = 'dashed')+
       theme_bw()
 
     p3 <- ggplot(mod, aes_string(names(mod)[1], 'res', colour = 'fdepth'))+
-      geom_point(size = 0.1)+
+      geom_point(size = size)+
       xlab('Time')+
       ylab('Residuals')+
       ggtitle('Residuals vs. Time')+
       #scale_color_gradientn(colors = rev(my.cols), name = 'Depths')+
-      scale_color_discrete(name = 'Depths', guide = F)+
+      {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
       #guides(colour = guide_legend(override.aes = list(size=lgd.sz)))+
       geom_hline(yintercept = 0, size = 1, linetype = 'dashed')+
       theme_bw()#+
     #theme(legend.text=element_text(size= (lgd.sz*2.5)))
 
     p4 <- ggplot(mod, aes_string('res', names(mod)[2], colour = 'fdepth'))+
-      geom_point(size = 0.1)+
+      geom_point(size = size)+
       ylab('Depth')+
       xlab('Residuals')+
       ggtitle('Residuals vs. Depth')+
-      scale_color_discrete(name = 'Depths', guide = F)+
       geom_vline(xintercept = 0, linetype = 'dashed', size = 1)+
+      {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
       #guides(colour = guide_legend(override.aes = list(size=5)))+
       theme_bw()
 
 
     p5 <- ggplot(mod,aes_string(names(mod)[3], 'obs', colour = 'fdepth'))+
-      geom_point(size = 0.1)+
+      geom_point(size = size)+
       ylab('Obs')+
       xlab('Modelled')+
       ggtitle('Obs vs. Mod')+
-      scale_color_discrete(name = 'Depths', guide = F)+
       coord_cartesian(xlim = range(mod[,3], obs[,3], na.rm =T), ylim = range(mod[,3], obs[,3], na.rm =T))+
       geom_abline(slope = 1, intercept = 0, colour = 'black', linetype = 'dashed', size =1)+
+      {if(colourblind)scale_colour_manual(values = dramp(ndep))}+
       #guides(colour = guide_legend(override.aes = list(size=5)))+
       theme_bw()
     p5 <- p5 + annotation_custom(grob2) + annotation_custom(grob3)

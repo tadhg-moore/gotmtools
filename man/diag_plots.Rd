@@ -4,14 +4,18 @@
 \alias{diag_plots}
 \title{Produces model diagnostic plots}
 \usage{
-diag_plots(mod, obs, ggplot = T)
+diag_plots(mod, obs, size = 0.1, ggplot = TRUE, colourblind = TRUE)
 }
 \arguments{
 \item{mod}{dataframe; modelled values in long format.}
 
 \item{obs}{dataframe; observed values in long format.}
 
+\item{size}{numeric; size of points in plot. Defaults to 0.1}
+
 \item{ggplot}{logical; plot in ggplot or base plot. Defaults to TRUE}
+
+\item{colourblind}{logical; Use colourblind friendly colours. Defaults to TRUE}
 }
 \value{
 grob object which can be assigned and then saved using ggsave() function

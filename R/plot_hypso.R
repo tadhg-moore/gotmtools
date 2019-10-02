@@ -19,7 +19,7 @@ plot_hypso <- function(hypsograph_file,header =F, sep = "\t", title = 'Hypsograp
     geom_line()+
     geom_point()+
     ggtitle(title)+
-    xlab('Volume (m3)')+
+    xlab('Area (m2)')+
     ylab('Depth (m)')+
     theme_bw()
   return(p1)
