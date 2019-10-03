@@ -5,7 +5,6 @@
 #' @param file file; File path to netcdf file
 #' @param ... other arguments to be passed to long_heatmap
 #' @return ggplot object; filled point plot of water temperature
-#' @importFrom glmtools get_var
 #' @export
 plot_wtemp <- function(file, ...){
   wtemp <- get_vari(ncdf = file, var = 'temp')

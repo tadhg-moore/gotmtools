@@ -9,7 +9,7 @@ get_vari(ncdf, var, print = T)
 \arguments{
 \item{ncdf}{filepath; Name of the netCDF file to extract variable}
 
-\item{var}{character; Name of the variable to be extracted. Must match}
+\item{var}{character; Name of the variable to be extracted. Must match short name in netCDF file}
 
 \item{print}{logical; Print the name and units of the variable extracted, defaults to TRUE}
 }

@@ -32,6 +32,7 @@ long_heatmap <- function(obs, title = 'Heatmap',ylim = NULL, xlim = NULL,size =1
   Fig <- ggplot(obs, aes(x = date, y = dep, color = temp)) +
     geom_point(size = size)+
     ggtitle(title)+
+    ylab('Depth (m)')+
     scale_color_gradientn(colors = rev(my.cols), name = zlab, ...)+
     coord_cartesian(ylim = ylim, xlim = xlim)+
     labs(fill = zlab)+

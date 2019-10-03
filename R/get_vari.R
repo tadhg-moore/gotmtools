@@ -3,7 +3,7 @@
 #' Extracts a selected parameter from the netCDF file and formats it into a dataframe.
 #'
 #' @param ncdf filepath; Name of the netCDF file to extract variable
-#' @param var character; Name of the variable to be extracted. Must match
+#' @param var character; Name of the variable to be extracted. Must match short name in netCDF file
 #' @param print logical; Print the name and units of the variable extracted, defaults to TRUE
 #' @return dataframe in the same format as the observation file with the surface in the top column and the bottom in the last column.
 #' @importFrom ncdf4 nc_open
