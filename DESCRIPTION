@@ -29,6 +29,7 @@ Imports:
 	tidyr,
 	RColorBrewer,
 	gridExtra,
+	readr,
 	zoo
 Suggests:
     testthat,
